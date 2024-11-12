@@ -5,30 +5,30 @@
 
     /* background colors */
 
-    --bg-white: hsla(0,0%,100%,1);
-    --bg-light-gray: hsla(240,1%,83%,1);
-    --bg-jet: hsla(0,0%,18%,1);
-    --bg-eerie-black: hsla(0,0%,13%,1);
-    --bg-rich-black-fogra-29: hsla(229,23%,9%,1);
-    --bg-black: hsla(0,0%,0%,1);
+    --bg-white: hsla(0, 0%, 100%, 1);
+    --bg-light-gray: hsla(240, 1%, 83%, 1);
+    --bg-jet: hsla(0, 0%, 18%, 1);
+    --bg-eerie-black: hsla(0, 0%, 13%, 1);
+    --bg-rich-black-fogra-29: hsla(229, 23%, 9%, 1);
+    --bg-black: hsla(0, 0%, 0%, 1);
 
     /* gradient colors */
     --gradient-1: linear-gradient(to top, var(--black) 0%, transparent 40%);
-    --gradient-2: radial-gradient(circle at 75% 100%, hsla(79,100%,70%,0.3) 0%, transparent 40%);
+    --gradient-2: radial-gradient(circle at 75% 100%, hsla(79, 100%, 70%, 0.3) 0%, transparent 40%);
 
     /* text colors */
-    --text-white: hsla(0,0%,100%,1);
-    --text-light-gray: hsla(240,1%,83%,1);
-    --text-rich-black-fogra-29: hsla(216,42%,12%,1);
-    --text-smoky-black: hsla(0,0%,6%,1);
-    --text-black: hsla(0,0%,0%,1);
+    --text-white: hsla(0, 0%, 100%, 1);
+    --text-light-gray: hsla(240, 1%, 83%, 1);
+    --text-rich-black-fogra-29: hsla(216, 42%, 12%, 1);
+    --text-smoky-black: hsla(0, 0%, 6%, 1);
+    --text-black: hsla(0, 0%, 0%, 1);
 
     /* border colors */
-    --border-white: hsla(0,0%,100%,1);
-    --border-light-gray: hsla(240,1%,83%,1);
-    --border-gainsboro: hsla(220,13%,91%,1);
-    --border-eerie-black: hsla(0,0%,13%,1);
-    --border-smoky-black: hsla(0,0%,6%,1);
+    --border-white: hsla(0, 0%, 100%, 1);
+    --border-light-gray: hsla(240, 1%, 83%, 1);
+    --border-gainsboro: hsla(220, 13%, 91%, 1);
+    --border-eerie-black: hsla(0, 0%, 13%, 1);
+    --border-smoky-black: hsla(0, 0%, 6%, 1);
 
     /**
     * TYPOGRAPHY
@@ -80,13 +80,15 @@
 
 *,
 *::before,
-*::after{
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-li {list-style: none;}
+li {
+    list-style: none;
+}
 
 a,
 img,
@@ -94,14 +96,18 @@ span,
 input,
 button,
 textarea,
-ion-icon {display: block;}
+ion-icon {
+    display: block;
+}
 
 a {
     color: inherit;
     text-decoration: none;
 }
 
-img {height: auto;}
+img {
+    height: auto;
+}
 
 input,
 button,
@@ -112,20 +118,28 @@ textarea {
 }
 
 input,
-textarea {width: 100%}
+textarea {
+    width: 100%
+}
 
-button { cursor: pointer;}
+button {
+    cursor: pointer;
+}
 
-ion-icon {pointer-events: none;}
+ion-icon {
+    pointer-events: none;
+}
 
-address {font-style: normal;}
+address {
+    font-style: normal;
+}
 
-html{
+html {
     font-size: 10px;
     scroll-behavior: smooth;
 }
 
-body{
+body {
     background-color: var(--bg-black);
     color: var(--text-light-gray);
     font-family: var(--fontFamilt-roboto);
@@ -134,12 +148,63 @@ body{
     overflow: hidden;
 }
 
-body.loaded {overflow-y: auto;}
+body.loaded {
+    overflow-y: auto;
+}
 
-body.nav-active {overflow: hidden;}
+body.nav-active {
+    overflow: hidden;
+}
 
-::-webkit-scrollbar {width: 5px;}
+::-webkit-scrollbar {
+    width: 5px;
+}
 
-::-webkit-scrollbar-track {border-inline-start: 1px solid var(--border-eerie-black);}
+::-webkit-scrollbar-track {
+    border-inline-start: 1px solid var(--border-eerie-black);
+}
 
-::-webkit-scrollbar-thumb { background-color: var(--bg-white);}
+::-webkit-scrollbar-thumb {
+    background-color: var(--bg-white);
+}
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    box-shadow: inset 55vw 0 0 0 var(--bg-white),
+        inset -55vw 0 0 0 var(--bg-white);
+    display: grid;
+    place-items: center;
+    z-index: 10;
+}
+
+.preloader.loaded {
+    transition: 300ms ease 500ms;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 0 var(--bg-white), inset 0 0 0 0 var(--bg-white);
+}
+
+.preloader .line{
+    width: 1px;
+    height: 100%;
+    background-color: var(--bg-black);
+    transition: var(--transition-2);
+    animation: loading 1000ms linear forwards;
+}
+
+@keyframes loading{
+    0% {transform: scaleY(0);}
+    100% {transform: scaleY(0.3);}
+}
+
+.preloader.loaded .line{
+    animation: loaded 500ms ease forwards;
+}
+
+@keyframes loaded {
+    0% {transform: scaleY(0.3);}
+    100% { transform: scaleY(1); opacity: 0;}
+}
