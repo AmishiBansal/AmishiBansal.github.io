@@ -56,7 +56,7 @@
     <!--
             HEADER
         -->
-    <header class="header" data-header>
+    <header class="header active" data-header>
         <div class="container">
 
             <a href="#" class="logo">
@@ -74,8 +74,35 @@
                     </button>
 
                 </div>
+                <ul class="navbar-list">
+                    <li>
+
+                        <a href="#home" class="navbar-link" data-nav-link>Home</a>
+                        <a href="#services" class="navbar-link" data-nav-link>Services</a>
+                        <a href="#about" class="navbar-link" data-nav-link>About</a>
+                        <a href="#project" class="navbar-link" data-nav-link>Project</a>
+                        <a href="#review" class="navbar-link" data-nav-link>Review</a>
+                        <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
+                    </li>
+
+
+                </ul>
             </nav>
 
+            <a href="#" class="btn btn:hover">
+
+                <span class="span">Get a Quote</span>
+
+                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+
+            <button class="nav-open-btn btn:hover" aria-label="open-menu" dataa-nav-toggler>
+
+                <span class="line line-1"></span>
+                <span class="line line-2"></span>
+            </button>
+
+            <div class="overlay" data-overlay data-nav-toggler></div>
         </div>
     </header>
 

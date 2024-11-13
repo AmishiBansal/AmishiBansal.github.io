@@ -210,3 +210,107 @@ body.nav-active {
     0% {transform: scaleY(0.3);}
     100% { transform: scaleY(1); opacity: 0;}
 }
+
+/* --------------------------- *\
+    #HEADER
+\* --------------------------- */
+
+.navbar,
+.overlay,
+.header .btn {display: none;}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100;
+    background-color: var(--bg-black);
+    padding-block: 20px;
+    z-index: 4;
+}
+
+.header.active{
+    position: fixed;
+    background-color: var(--bg-jet);
+    padding-block: 10px;
+    animation: slideIn 500ms ease-out forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-open-btn {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-content: center;
+    gap: 6px;
+}
+
+.nav-open-btn .line{
+    width: 24px;
+    height: 2px;
+    background-color: var(--bg-black);
+    transition: var(--transition-1);
+}
+
+.nav-open-btn:is(:hover, :focus-visible) .line{background-color: var(--bg-white);}
+
+.nav-open-btn:is(:hover, :focus-visible) .line-1 {transform: scaleX(0.7);}
+/* --------------------------- *\
+    #REUSED STYLE
+\* --------------------------- */
+
+.container {
+    padding-inline: 16px;
+}
+
+.btn\:hover{
+    position: relative;
+    z-index: 1;
+}
+
+.btn\:hover::before,
+.btn\:hover::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: var(--transition-1);
+    will-change: transform;
+    pointer-events: none;
+}
+
+.btn\:hover::after{
+    border: 1px solid var(--bg-white);
+    transform: scale(1.2);
+    opacity: 0;
+}
+
+.btn\:hover:is(:hover, :focus-visible):before{
+    transform: scale(0.5);
+    opacity: 0;
+}
+
+.btn\:hover:is(:hover, :focus-visible):after{
+    transform: scale(1);
+    opacity: 1;
+}
