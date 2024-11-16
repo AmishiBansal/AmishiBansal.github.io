@@ -407,3 +407,46 @@ body.nav-active {
     transform: scale(1);
     opacity: 1;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.has-before,
+.has-after{
+    position: relative;
+    z-index: 1;
+}
+
+.has-before::before,
+.has-after::after{
+    content: "";
+    position: absolute;
+}
+
+.img-holder{
+    aspect-ratio: var(--width)/var(--height);
+    overflow: hidden;
+    background-color: var(--bg-jet);
+}
+
+.img-cover{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+[data-tilt] {
+    transform: var(--transition-3);
+}
+
+.title{
+    color: var(--text-white);
+    font-family: var(--fontFamily-recoleta);
+    font-weight: var(--weight-regular);
+}
+
+.h1{
+    font-size: var(--fontSize-2);
+    line-height: 1.2;
+}

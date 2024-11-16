@@ -31,3 +31,19 @@ addEventOnElements(navTogglers, "click", function () {
   overlay.classList.toggle("active");
   document.body.classList.toggle("nav-active");
 });
+
+addEventOnElements(navLinks, "click", function(){
+    navbar.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.classList.remove("nav-active");
+});
+
+/**
+ * Header Active
+ */
+
+const header = document.querySelector("[data-header]");
+
+window.addEventListener("scroll", function(){
+    header.classList[this.window.scrollY > 100 ? "add" : "remove"]("active");
+});
